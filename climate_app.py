@@ -96,42 +96,47 @@ def tobs():
 #This one works sometimes :(
 @app.route("/api/v1.0/<start>")
 def start_temp(start):
-    startdate=dt.datetime.strptime(start, '%Y-%m-%d')
-    results = session.query(Measurement.date, func.avg(Measurement.tobs), func.max(Measurement.tobs), func.min(Measurement.tobs)).\
-        filter(Measurement.date >= startdate).all()
-
+    startdate=start
+    #startdate=dt.datetime.strptime(start, '%Y-%m-%d')
+    results = session.query(func.avg(Measurement.tobs), func.max(Measurement.tobs), func.min(Measurement.tobs)).filter(Measurement.date >= startdate).all()
+    print(results)
+    for row in session.query(func.avg(Measurement.tobs), func.max(Measurement.tobs), func.min(Measurement.tobs)).filter(Measurement.date >= startdate).all():
+        print(row)
+    
 #Create JSON
     data_list = []
     for result in results:
         row = {}
-        row['date'] = result[0]
-        row['avg'] = float(result[1])
-        row['max'] = float(result[2])
-        row['min'] = float(result[3])
+        row['startdate'] = startdate
+        row['avg'] = float(result[0])
+        row['max'] = float(result[1])
+        row['min'] = float(result[2])
         data_list.append(row)
 
     return jsonify(data_list)
 
 @app.route("/api/v1.0/<start>/<end>")
 def between_temp(start, end):
-    start_date=dt.datetime.strptime(start, '%Y-%m-%d')
-    end_date= dt.datetime.strptime(end, '%Y-%m-%d')
-    results = session.query(Measurement.date, func.avg(Measurement.tobs), func.max(Measurement.tobs), func.min(Measurement.tobs)).\
-        filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all().all()
+    start_date=start
+    end_date= end
+    results = session.query(func.avg(Measurement.tobs), func.max(Measurement.tobs), func.min(Measurement.tobs)).filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all()
+    print(results)
 
 #Create JSON
     data_list = []
     for result in results:
         row = {}
-        row['date'] = result[0]
-        row['avg'] = float(result[1])
-        row['max'] = float(result[2])
-        row['min'] = float(result[3])
+        row['startdate'] = start_date
+        row['end_date'] = end_date
+        row['avg'] = float(result[0])
+        row['max'] = float(result[1])
+        row['min'] = float(result[2])
         data_list.append(row)
 
     return jsonify(data_list)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
