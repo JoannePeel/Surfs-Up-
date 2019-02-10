@@ -28,7 +28,7 @@ I used Python and SQLAlchemy to do a basic climate analysis and data exploration
 
   * The results were plotted using a histogram with `bins=12`.
 
-    ![station-histogram](Ttemp_sb.png)
+    ![station-histogram](temp_sb.png)
     
 ### Temperature Analysis 
 
@@ -37,6 +37,7 @@ Using the function called calc_temps which and etering a start date and end date
 
 * The results were plotted as a bar chart, using the average temperature as the bar height and the peak-to-peak (tmax-tmin) value as the y error bar (yerr).    
     
+     ![average](Trip_temp_sb.png)
 
 - - -
 
