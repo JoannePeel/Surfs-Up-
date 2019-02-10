@@ -8,7 +8,7 @@ For this analysis I used the [hawaii.sqlite](https://github.com/JoannePeel/The_S
 
 I used Python and SQLAlchemy to do a basic climate analysis and data exploration of the climate database. All of the following analysis were completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
 
-* To see the complete code, click here: [The_Surf_is_Up.ipynb](https://github.com/JoannePeel/The_Surf_is_Up/blob/master/The_surf_%20is_%20up!.ipynb)
+* To see the complete code, click here: [The_surf_ is_ up!_seaborn.ipynb](https://github.com/JoannePeel/The_Surf_is_Up/blob/master/The_surf_%20is_%20up!_seaborn.ipynb)
 
 ### Precipitation Analysis
 
@@ -18,7 +18,7 @@ I used Python and SQLAlchemy to do a basic climate analysis and data exploration
 
 * The results were plotted using the DataFrame `plot` method.
 
-  ![precipitation](prcp2.png)
+  ![precipitation](prcp_sb.png)
 
 ### Station Analysis
 
@@ -28,7 +28,15 @@ I used Python and SQLAlchemy to do a basic climate analysis and data exploration
 
   * The results were plotted using a histogram with `bins=12`.
 
-    ![station-histogram](Trip_temp.png)
+    ![station-histogram](Ttemp_sb.png)
+    
+### Temperature Analysis 
+
+
+Using the function called calc_temps which and etering a start date and end date in the format %Y-%m-%d,  minimum, average, and maximum temperatures were calculated for a range of dates.
+
+* The results were plotted as a bar chart, using the average temperature as the bar height and the peak-to-peak (tmax-tmin) value as the y error bar (yerr).    
+    
 
 - - -
 
@@ -71,4 +79,4 @@ A Flask API  was designed based on the queries above.
   * When given the start and the end date, calculate the `TMIN`, `TAVG`, and `TMAX` for dates between the start and end date inclusive.
 
 
-### Data Boot Camp ©2018. All Rights Reserved.
+_Data Boot Camp ©2018. All Rights Reserved.
