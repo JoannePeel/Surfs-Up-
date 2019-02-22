@@ -47,7 +47,7 @@ A Flask API  was designed based on the queries above.
 * To see the complete code, click here: [climate_app.py](https://github.com/JoannePeel/The_Surf_is_Up/blob/master/climate_app.py)
 
 
-* I used FLASK to create your routes.
+* I used FLASK to create four routes.
 
 ### Routes
 
